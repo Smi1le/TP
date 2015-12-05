@@ -7,15 +7,15 @@
 using namespace sf;
 using namespace std;
 
-void drawingSystem(RenderWindow & window, mySystem *sys) {
+void drawingSystem(RenderWindow & window, mySystem &sys) {
 	window.clear(Color::Blue);
-	window.draw(*sys->firstGears);
-	window.draw(*sys->secondGears);
-	window.draw(*sys->mintySprite);
+	window.draw(*sys.firstGears);
+	window.draw(*sys.secondGears);
+	window.draw(*sys.mintySprite);
 	window.display();
 }
 
-void basicCycle(RenderWindow &window, mySystem *sys) {
+void basicCycle(RenderWindow &window, mySystem &sys) {
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -45,10 +45,10 @@ void cleaning(mySystem *sys) {
 int main()
 {
 	mySystem *sys = new mySystem;
-	createSystem(sys);
+	createSystem(*sys);
 	RenderWindow &window = *sys->window;
 	
-	basicCycle(window, sys);
+	basicCycle(window, *sys);
 	
 	cleaning(sys);
 	delete sys;

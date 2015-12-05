@@ -21,9 +21,9 @@ struct mySystem {
 	Sprite *firstGears = nullptr;
 	Sprite *secondGears = nullptr;
 	bool intersection = false;
-	
+	int timer = 0;
 
 };
 
-void createSystem(mySystem *sys);
-void operationSystem(mySystem *sys);
+void createSystem(mySystem &sys);
+void operationSystem(mySystem &sys);
